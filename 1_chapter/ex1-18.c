@@ -45,5 +45,5 @@ int main(){
 }
 
 int is_white_space(char c){
-  return c == ' ' || c == '\n' || c == '\n';
+  return c == ' ' || c == '\t' || c == '\n';
 }
