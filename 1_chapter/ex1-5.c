@@ -1,14 +1,18 @@
 #include <stdio.h>
 
-/* verify that getchar() != EOF is 0 or 1 */
+#define LOWER 0
+#define UPPER 200
+#define STEP 20
 
 int main(){
-  int result = getchar() != EOF;
-  if(result == 1 || result == 0){
-    printf("success\n");
-    return 0;
+  float fahr, celsius;
+
+  celsius = UPPER;
+  while(celsius >= LOWER){
+    fahr = (9.0/5.0) * celsius + 32;
+    printf("C: %3.0f F: %3.0f\n", celsius, fahr);
+    celsius -= STEP;
   }
-  printf("failure");
-    
-  return 1;
+  return 0;
 }
+

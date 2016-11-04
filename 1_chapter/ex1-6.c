@@ -1,8 +1,14 @@
 #include <stdio.h>
 
-/* write a program to print the value of EOF */
+/* verify that getchar() != EOF is 0 or 1 */
 
 int main(){
-  printf("int value of EOF %d\n", EOF);
-  return 0;
+  int result = getchar() != EOF;
+  if(result == 1 || result == 0){
+    printf("success\n");
+    return 0;
+  }
+  printf("failure");
+    
+  return 1;
 }
