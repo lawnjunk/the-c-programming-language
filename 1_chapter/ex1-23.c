@@ -5,7 +5,6 @@
 int main(){
   int c, last;
 
-
   while ((c = getchar()) != EOF){
     if(c == '/'){
       last = c; 
@@ -14,10 +13,24 @@ int main(){
         while((c = getchar()) != EOF && c != '\n')
           continue;
         printf("\n");
+        last = '\0';
         continue;
-      } else {
-        printf("%c%c", last, c);
-      }
+      } 
+      
+      if(c == '*'){
+        while((c = getchar()) != EOF){
+          if(c == '*') {
+            if((c = getchar()) == '/'){
+              break;
+            }
+          }
+        }
+        printf("\n");
+        last = '\0';
+        continue;
+      } 
+
+      printf("%c%c", last, c);
     }
 
     printf("%c", c);
