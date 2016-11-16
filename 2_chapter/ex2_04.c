@@ -3,12 +3,17 @@
 
 void squeeze(char *input, char *filter);
 
-int main(){
+int main(int argc, char *argv[]){
 
-  char data[100] = "huaeccxmzrnl234nnqlyui yuio";
+  if (argc != 3){
+    printf("USAGE ERROR:\n  Try ./squeeze <string one> <string two>\n");
+    return 1;
+  }
 
-  squeeze(data, "uacxmzrnl234niuqu");
+  char data[strlen(argv[1])]; 
+  strcpy(data, argv[1]);
 
+  squeeze(data, argv[2]);
   printf("%s\n", data);
 
   return 0;
@@ -31,6 +36,8 @@ void squeeze(char *input, char *filter){
     if(alpha_map[input[i]]) continue;
     tmp_buf[f++] = input[i];
   }
+
+  tmp_buf[f] =  '\0';
 
   strcpy(input, tmp_buf);
 }
