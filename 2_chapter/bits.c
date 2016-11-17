@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-void print_byte(int b, char *msg);
 void print_truth(int b);
 int get_bit(int num, int offset);
 int set_bit(int num, int offset);
+void print_byte(int b, char *msg);
 int flip_bit(int num, int offset);
 int clear_bit(int num, int offset);
 
@@ -39,13 +39,11 @@ int main(){
 
 void print_byte(int b, char *msg){
   int i;
-
   printf("%s ", msg);
   for(i=7; i>-1; --i){
     printf(" %d", get_bit(b, i));
   }
   printf("\n");
-
 }
 
 void print_truth(int b){
